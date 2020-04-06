@@ -8,7 +8,7 @@ public class Skeptic extends Person{
 	}
 
 	public void tryToMove() {
-		// don't move
+		super.tryToMove();
 	}
 
 }
