@@ -17,7 +17,7 @@ import java.util.Random;
 
 public abstract class Person {
   // the persons fate depends on some random variables...
-  private Random random = new Random();
+  protected Random random = new Random();
 
   // we use the counter to give each Person a unique id
 	private static int counter=1;
