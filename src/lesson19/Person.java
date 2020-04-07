@@ -14,6 +14,7 @@ import java.util.Random;
  in some random direction as long as no one else is there.
 
 */
+ // olivia try
 
 public abstract class Person {
   // the persons fate depends on some random variables...
