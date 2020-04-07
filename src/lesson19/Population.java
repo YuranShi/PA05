@@ -41,7 +41,7 @@ public class Population{
     for(int k=0; k<numPeople; k++){
       Person p = people[k];
       p.country = country;
-
+      //衣龙到此一游
       // find an open random space for the person
       int i = random.nextInt(country.places.length);
       int j = random.nextInt(country.places[i].length);
