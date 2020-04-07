@@ -1,5 +1,5 @@
 package lesson19;
-//test ruyang
+//test ruyang wang
 public class AllStayAtHome extends Population{
 
   public AllStayAtHome(int n){
