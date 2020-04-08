@@ -10,7 +10,7 @@ public class Doctor extends Person {
 	}
 
 	public Doctor() {
-		
+		super();
 	}
 
 	void tryToMove() {
@@ -22,24 +22,18 @@ public class Doctor extends Person {
 	 * the doctor can treat one person around him
 	 */
 	public void treatment(){
-		int treated = 0;
-		while(treated <= 1 && this.infected == false) {
-			ArrayList<Person> potentialPatients = new ArrayList<Person>();
-			for(int i = -1; i <=1 ; i+=2) {
-				if(country.places[x-i][y] != null && country.places[x-1][y].infected == true)
+		ArrayList<Person> potentialPatients = new ArrayList<Person>();
+		for(int i = -1; i <=1 ; i++) {
+			for (int j = -1; j <= 1; j++) {
+				if(country.places[x-i][y] != null && country.places[x-1][y].infected == true && !(i==0&&j==0)) {
 					potentialPatients.add(country.places[x-i][y]);
+				}
 			}
-			for(int i = -1; i <=1 ; i+=2) {
-				if(country.places[x][y+i] != null && country.places[x][y+i].infected == true)
-					potentialPatients.add(country.places[x-i][y]);
-			}
-			while(potentialPatients != null) {
-				int ranNum = (int) (Math.random()*(potentialPatients.size()+1));
-				potentialPatients.get(ranNum).recovered = true;
-				treated ++;
-				System.out.println("treated");
-			}
-		
+		}
+		if(potentialPatients != null) {
+			int ranNum = (int) (Math.random()*(potentialPatients.size()+1));
+			potentialPatients.get(ranNum).recovered = true;
+			System.out.println("treated");
 		}
 			
 	}
