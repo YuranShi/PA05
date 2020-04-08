@@ -1,5 +1,7 @@
 package lesson19;
 
+import java.util.ArrayList;
+
 public class Doctor extends Person {
 	private double cureProb=0.3;
 	public Doctor() {
@@ -10,7 +12,7 @@ public class Doctor extends Person {
 		super.tryToMoveRandomly();
 		cure();
 	}
-	
+
 	public void cure(){	
 		for(int i=this.x-1; i<=this.x+1; i++) {
 			for(int j=this.y-1; j<=this.y+1; j++) {
