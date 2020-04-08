@@ -4,44 +4,50 @@ import java.util.ArrayList;
 
 public class Doctor extends Person {
 
-	public Doctor(int x, int y, Country country) {
-		super(x, y, country);
-		// TODO Auto-generated constructor stub
-	}
-
 	public Doctor() {
-		
+		super();
 	}
-
+	
 	void tryToMove() {
 		super.tryToMoveRandomly();
-		treatment();
+		cure();
+//		treatment();
 	}
 	
 	/*
-	 * the doctor can treat one person around him
+	 * the doctor can treat one random person around him
 	 */
-	public void treatment(){
-		int treated = 0;
-		while(treated <= 1 && this.infected == false) {
-			ArrayList<Person> potentialPatients = new ArrayList<Person>();
-			for(int i = -1; i <=1 ; i+=2) {
-				if(country.places[x-i][y] != null && country.places[x-1][y].infected == true)
-					potentialPatients.add(country.places[x-i][y]);
+//	public void treatment(){
+//		int treated = 0;
+//		ArrayList<Person> potentialPatients = new ArrayList<Person>();
+//		for(int i=this.x-1; i<this.x+1; i+=2) {
+//			Person p = country.places[i][this.y];
+//			if(inRange(i,this.y,country) && p != null && p.infected)
+//				potentialPatients.add(p);
+//		}
+//		for(int j=this.y-1; j<this.y+1; j+=2) {
+//			Person p = country.places[this.x][j];
+//			if(inRange(this.x,j,country) && p != null && p.infected)
+//				potentialPatients.add(p);
+//		}	
+//		if(potentialPatients != null) {
+//			int ranNum = (int) (Math.random()*(potentialPatients.size()+1));
+//			potentialPatients.get(0).recovered = true;
+//			System.out.println("treated");
+//		}
+//		
+//	}
+	public void cure(){	
+		for(int i=this.x-1; i<=this.x+1; i++) {
+			for(int j=this.y-1; j<=this.y+1; j++) {
+				if (inRange(i,j,country)) {
+					Person p = country.places[i][j];
+					if (p != null  && p.infected) {
+						p.recovered=true;
+						i=this.x+1;
+					}
+				}
 			}
-			for(int i = -1; i <=1 ; i+=2) {
-				if(country.places[x][y+i] != null && country.places[x][y+i].infected == true)
-					potentialPatients.add(country.places[x-i][y]);
-			}
-			while(potentialPatients != null) {
-				int ranNum = (int) (Math.random()*(potentialPatients.size()+1));
-				potentialPatients.get(ranNum).recovered = true;
-				treated ++;
-				System.out.println("treated");
-			}
-		
 		}
-			
 	}
-
 }
