@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-class AnalyzeSimulation {
-	public static void main(String[] args) {
-		
-	}
-=======
 package lesson19;
 import java.util.Scanner;
 public class AnalyzeSimulation{
@@ -17,5 +11,4 @@ public class AnalyzeSimulation{
 			
 		}
 	}
->>>>>>> ed60f3fe5c629a3c722fc4af7339489e57965284
 }
