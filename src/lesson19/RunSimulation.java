@@ -81,7 +81,6 @@ public class RunSimulation {
 		int ticks=0;
 		int numInfected=0;
 		int peakInfected=0;
-		boolean[] infectedList=new boolean[population.getSize()];
 		for(int k=0;k<MAX_TICKS; k++) {
 			country.simulateOneStep();
 			if (country.numInfected==0){
@@ -91,13 +90,12 @@ public class RunSimulation {
 			if(country.getInfected()>peakInfected){
 				peakInfected=country.getInfected();
 			}
-			for(Person p:population.people){
-				if(p.infected){
-					infectedList[p.id-1]=true;
-				}
+		}
+		for(int i=0;i<population.getSize();i++){
+			if(population.people[i].infectionTime != -1){
+				numInfected++;
 			}
 		}
-		numInfected=country.getInfected();
 			
 		
 		int[] result= new int[]{ticks,numInfected,peakInfected};
