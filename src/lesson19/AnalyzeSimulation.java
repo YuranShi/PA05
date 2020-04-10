@@ -1,5 +1,4 @@
 package lesson19;
-<<<<<<< HEAD
 import java.util.Scanner;
 
 public class AnalyzeSimulation extends RunSimulation{
@@ -21,9 +20,7 @@ public class AnalyzeSimulation extends RunSimulation{
 		for(int i=0;i<repetition;i++) {
 			int[] parameter=r.run(width,height,numStayHome,numEssential,numSkeptic,numFlier,numDoc,repetition);		
 			sumDays+=parameter[0];
-			System.out.println(sumDays);
 			sumInfected+=parameter[1];
-			System.out.println(sumInfected);
 			if (parameter[2]>peakInfected){
 				peakInfected=parameter[2];	
 			}		
@@ -32,19 +29,4 @@ public class AnalyzeSimulation extends RunSimulation{
 		System.out.println("AvgInfected: "+sumInfected/repetition);
 		System.out.println("PeakInfected: "+peakInfected);
 	}
-	
-=======
-import java.util.Scanner;
-public class AnalyzeSimulation{
-	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		String arg = in.nextLine();
-		String[] ar = arg.split(" ");
-		int trial = 0;
-		while (trial <= 100) {
-			RunSimulation.main(ar);
-			
-		}
-	}
->>>>>>> 35cfeeb8eefea7d2f306ad94030028f92f496222
 }
