@@ -26,9 +26,16 @@ public class AnalyzeSimulation extends RunSimulation{
 					peakInfected=parameter[2];	
 				}		
 			}
-			System.out.println("AvgDays: "+sumDays/repetition);
-			System.out.println("AvgInfected: "+sumInfected/repetition);
-			System.out.println("PeakInfected: "+peakInfected);
+			String str="AvgDays: "+sumDays/repetition+"\nAvgInfected: "+sumInfected/repetition+"\nPeakInfected: "+peakInfected+"\n(｡・ω・｡)";
+			for (int i=0; i<str.length();i++) {
+				System.out.print(str.charAt(i));
+				try {
+					Thread.sleep(15);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				} 
+			}
+			System.out.println("");
 		}
 		else{
 			RunSimulation r=new RunSimulation();
