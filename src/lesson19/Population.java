@@ -14,6 +14,7 @@ kinds of populations!
 public class Population{
   public Person[] people;
   private int numPeople = 0;
+  //public boolean[] infectedList=new boolean[numPeople]; 
   private Random random = new Random();
 
   public Population(int n){

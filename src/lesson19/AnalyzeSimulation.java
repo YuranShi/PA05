@@ -12,21 +12,27 @@ public class AnalyzeSimulation extends RunSimulation{
 		int numSkeptic = Integer.parseInt(args[4]);
 		int numFlier = Integer.parseInt(args[5]);
 		int numDoc = Integer.parseInt(args[6]);
-		int repetition=Integer.parseInt(args[7]);
-		int sumDays=0;
-		int sumInfected=0;
-		int peakInfected=0;
-		RunSimulation r=new RunSimulation();
-		for(int i=0;i<repetition;i++) {
-			int[] parameter=r.run(width,height,numStayHome,numEssential,numSkeptic,numFlier,numDoc,repetition);		
-			sumDays+=parameter[0];
-			sumInfected+=parameter[1];
-			if (parameter[2]>peakInfected){
-				peakInfected=parameter[2];	
-			}		
+		if(args.length==8){
+			int repetition=Integer.parseInt(args[7]);
+			int sumDays=0;
+			int sumInfected=0;
+			int peakInfected=0;
+			RunSimulation r=new RunSimulation();
+			for(int i=0;i<repetition;i++) {
+				int[] parameter=r.run(width,height,numStayHome,numEssential,numSkeptic,numFlier,numDoc,repetition);		
+				sumDays+=parameter[0];
+				sumInfected+=parameter[1];
+				if (parameter[2]>peakInfected){
+					peakInfected=parameter[2];	
+				}		
+			}
+			System.out.println("AvgDays: "+sumDays/repetition);
+			System.out.println("AvgInfected: "+sumInfected/repetition);
+			System.out.println("PeakInfected: "+peakInfected);
 		}
-		System.out.println("AvgDays: "+sumDays/repetition);
-		System.out.println("AvgInfected: "+sumInfected/repetition);
-		System.out.println("PeakInfected: "+peakInfected);
+		else{
+			RunSimulation r=new RunSimulation();
+			r.run(width,height,numStayHome,numEssential,numSkeptic,numFlier,numDoc);
+		}
 	}
 }

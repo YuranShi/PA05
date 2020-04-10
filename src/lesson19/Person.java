@@ -22,7 +22,7 @@ public abstract class Person {
 
   // we use the counter to give each Person a unique id
 	private static int counter=1;
-  int id = 0;
+  	int id = 0;
 
   // Next we need the location of the Person
   // the Country variable allows the user to "look around"
