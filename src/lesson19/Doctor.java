@@ -1,20 +1,31 @@
 package lesson19;
 
 public class Doctor extends Person {
-
-	public Doctor(int x, int y, Country country) {
-		super(x, y, country);
-		// TODO Auto-generated constructor stub
-	}
-
+	private double cureProb=0.3;
 	public Doctor() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
-	@Override
-	void tryToMove() {
-		// TODO Auto-generated method stub
-		
+	public void tryToMove() {
+		super.tryToMoveRandomly();
+		cure();
 	}
 
+	public void cure(){	
+		for(int i=this.x-1; i<=this.x+1; i++) {
+			for(int j=this.y-1; j<=this.y+1; j++) {
+				if (inRange(i,j,country)) {
+					Person p = country.places[i][j];
+					if (p != null  && p.infected) {
+						if (Math.random()<=cureProb) {
+							p.infected=false;
+						}
+						i=this.x+1;
+					}
+				}
+			}
+		}
+
+	}
 }
+
