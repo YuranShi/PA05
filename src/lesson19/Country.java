@@ -27,7 +27,11 @@ public class Country {
 	public Country() {
 		this(10,20);
 	}
-
+	
+	public int getInfected(){
+		return numInfected;
+	}
+	
 	public void printState(int day){
 		System.out.printf("%3d ",day);
 		for(int i =0; i<numInfected; i++){
@@ -41,7 +45,7 @@ public class Country {
 		}
 		System.out.println();
 	}
-
+	
 	public void simulateOneStep(){
 		//System.out.println("size= "+population.getSize());
 		//System.out.println(java.util.Arrays.toString(population.people));
