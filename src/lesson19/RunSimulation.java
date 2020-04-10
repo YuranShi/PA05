@@ -42,7 +42,7 @@ public class RunSimulation {
 				peakInfected=country.getInfected();
 			}
 		}
-		numInfected=country.getInfected();
+		numInfected=country.getRecovered();
 			
 		
 		int[] result= new int[]{ticks,numInfected,peakInfected};
