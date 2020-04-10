@@ -88,7 +88,6 @@ public class Country {
 	}
 
 	public void printCountry() {
-
 		for(int i=0; i<places.length; i++) {
 			for(int j=0; j<places[i].length; j++) {
 				Person p = places[i][j];
