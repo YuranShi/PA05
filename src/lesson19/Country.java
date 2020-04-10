@@ -32,6 +32,10 @@ public class Country {
 		return numInfected;
 	}
 	
+	public int getRecovered(){
+		return numRecovered;
+	}
+	
 	public void printState(int day){
 		System.out.printf("%3d ",day);
 		for(int i =0; i<numInfected; i++){
