@@ -1,4 +1,5 @@
 package lesson19;
+<<<<<<< HEAD
 import java.util.Scanner;
 
 public class AnalyzeSimulation extends RunSimulation{
@@ -32,4 +33,18 @@ public class AnalyzeSimulation extends RunSimulation{
 		System.out.println("PeakInfected: "+peakInfected);
 	}
 	
+=======
+import java.util.Scanner;
+public class AnalyzeSimulation{
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		String arg = in.nextLine();
+		String[] ar = arg.split(" ");
+		int trial = 0;
+		while (trial <= 100) {
+			RunSimulation.main(ar);
+			
+		}
+	}
+>>>>>>> 35cfeeb8eefea7d2f306ad94030028f92f496222
 }
